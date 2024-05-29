@@ -1,0 +1,14 @@
+# Ignore build files
+/build
+*.o
+*.out
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore generated files
+*.exe
+*.dll
+*.so
