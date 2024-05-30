@@ -6,6 +6,7 @@
 class CheckCommand : public Command {
   public:
     void execute() override;
+    void describe() override;
 };
 
 #endif
