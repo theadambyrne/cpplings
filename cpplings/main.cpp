@@ -5,21 +5,24 @@
 #include <memory>
 #include <unordered_map>
 
+using namespace std;
+
 int main(int argc, char**argv) {
-  if (argc != 2) {
-    std::cerr << "Usage: " << argv[0] << " <command>" << std::endl;
+  unordered_map<string, shared_ptr<Command>> commands; // shared: auto deallocation, single heap allocation
+  commands["check"] = make_shared<CheckCommand>();
+
+  if (argc != 2) { // one command only 
+    cerr << "Usage: " << argv[0] << " <command>" << endl;
     return 1;
   }
 
-  std::string commandName = argv[1];
-  std::unordered_map<std::string, std::shared_ptr<Command>> commands; // shared: auto deallocation, single heap allocation
-  commands["check"] = std::make_shared<CheckCommand>();
-
+  string commandName = argv[1];
   auto command = commands.find(commandName);
+
   if (command != commands.end()) {
     command->second->execute();
   } else {
-    std::cerr << "Command \"" << commandName << "\" not recognised" << std::endl;
+    cerr << "Command \"" << commandName << "\" not recognised" << endl;
     return 1;
   }
 
