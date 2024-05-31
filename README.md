@@ -9,6 +9,11 @@ this is a C++ spin-off to get you writing and reading C++. After setting up `cpp
 git clone https://github.com/theadambyrne/cpplings.git
 
 cd cpplings
+
+mkdir build && cd build
+cmake .. && make
+
+./cpplings help
 ```
 
 Note: This is a work in progress
